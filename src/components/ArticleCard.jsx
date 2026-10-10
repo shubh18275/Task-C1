@@ -1,6 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 
+// Single article card component taking props for image, title, description, rating, and author
 function ArticleCard({ image, title, description, rating, author }) {
   return (
     <div className="card">
@@ -18,3 +19,4 @@ function ArticleCard({ image, title, description, rating, author }) {
 }
 
 export default ArticleCard;
+

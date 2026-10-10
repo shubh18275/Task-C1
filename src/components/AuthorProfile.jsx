@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Author profile component displaying student bio and photo
 function AuthorProfile() {
   return (
     <section id="about" className="about-section">
@@ -15,3 +16,4 @@ function AuthorProfile() {
 }
 
 export default AuthorProfile;
+

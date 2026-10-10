@@ -5,21 +5,28 @@ import { auth } from '../firebase';
 
 function Login() {
   const navigate = useNavigate();
+
+  // Form input and status states
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [busy, setBusy] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  // Handle user login form submission
   async function handleSubmit(event) {
     event.preventDefault();
     setError('');
-    setBusy(true);
+    setLoading(true);
+
     try {
+      // Log in user with Firebase auth
       await signInWithEmailAndPassword(auth, email.trim(), password);
       navigate('/');
-    } catch {
+    } catch (err) {
       setError('Those email and password details did not match an account. Try again or sign up for a free account.');
-    } finally { setBusy(false); }
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -31,12 +38,29 @@ function Login() {
         </div>
         <form className="auth-form" onSubmit={handleSubmit}>
           <label htmlFor="login-email">Your email</label>
-          <input id="login-email" type="email" autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <input
+            id="login-email"
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
           <label htmlFor="login-password">Your password</label>
-          <input id="login-password" type="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <input
+            id="login-password"
+            type="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
           {error && <p className="form-message" role="alert">{error}</p>}
-          <button className="auth-submit" type="submit" disabled={busy}>
-            {busy ? 'Logging in...' : 'Login'}
+
+          <button className="auth-submit" type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
       </section>
@@ -45,3 +69,4 @@ function Login() {
 }
 
 export default Login;
+

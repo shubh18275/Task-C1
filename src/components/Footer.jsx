@@ -1,6 +1,7 @@
 import React from 'react';
 import Newsletter from './Newsletter';
 
+// Website footer component displaying links and newsletter form
 function Footer() {
   return (
     <footer id="contact" className="footer-container">
@@ -57,3 +58,4 @@ function Footer() {
 }
 
 export default Footer;
+

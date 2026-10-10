@@ -1,7 +1,9 @@
 import React from 'react';
 import ArticleCard from './ArticleCard';
 
+// Section component displaying a grid of featured articles
 function FeaturedArticles() {
+  // List of article project data
   const articles = [
     {
       id: 1,
@@ -32,7 +34,9 @@ function FeaturedArticles() {
   return (
     <section id="work" className="section-container">
       <h2 className="section-title">Featured Articles</h2>
+
       <div className="cards-grid">
+        {/* Loop over each article and render an ArticleCard */}
         {articles.map((article) => (
           <ArticleCard
             key={article.id}
@@ -44,6 +48,7 @@ function FeaturedArticles() {
           />
         ))}
       </div>
+
       <div className="center-btn">
         <button className="action-btn">See all articles</button>
       </div>
@@ -52,3 +57,4 @@ function FeaturedArticles() {
 }
 
 export default FeaturedArticles;
+

@@ -1,8 +1,7 @@
-
-
 import React from 'react';
 import { Star } from 'lucide-react';
 
+// Single tutorial card component taking props for image, title, description, rating, and username
 function TutorialCard({ image, title, description, rating, username }) {
   return (
     <div className="card">
@@ -20,3 +19,4 @@ function TutorialCard({ image, title, description, rating, username }) {
 }
 
 export default TutorialCard;
+

@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
+// Home component combines all sections of the main page
 function Home() {
   return (
     <>
@@ -19,6 +20,7 @@ function Home() {
   );
 }
 
+// Main App component handles navigation routes
 function App() {
   return (
     <BrowserRouter>
@@ -37,3 +39,4 @@ function App() {
 }
 
 export default App;
+

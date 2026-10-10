@@ -1,7 +1,9 @@
 import React from 'react';
 import TutorialCard from './TutorialCard';
 
+// Section component displaying a grid of featured tutorials
 function FeaturedTutorials() {
+  // List of tutorial data objects
   const tutorials = [
     {
       id: 1,
@@ -32,7 +34,9 @@ function FeaturedTutorials() {
   return (
     <section className="section-container">
       <h2 className="section-title">Featured Tutorials</h2>
+
       <div className="cards-grid">
+        {/* Loop over each tutorial and render a TutorialCard */}
         {tutorials.map((tutorial) => (
           <TutorialCard
             key={tutorial.id}
@@ -44,6 +48,7 @@ function FeaturedTutorials() {
           />
         ))}
       </div>
+
       <div className="center-btn">
         <button className="action-btn">See all tutorials</button>
       </div>
@@ -52,3 +57,4 @@ function FeaturedTutorials() {
 }
 
 export default FeaturedTutorials;
+

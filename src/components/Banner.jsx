@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Top banner component showing the header image and welcome text
 function Banner() {
   return (
     <div className="banner">
@@ -12,3 +13,4 @@ function Banner() {
 }
 
 export default Banner;
+
