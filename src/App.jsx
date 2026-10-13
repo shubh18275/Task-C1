@@ -7,8 +7,8 @@ import FeaturedTutorials from './components/FeaturedTutorials';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Post from './pages/Post';
 
-// Home component combines all sections of the main page
 function Home() {
   return (
     <>
@@ -20,7 +20,6 @@ function Home() {
   );
 }
 
-// Main App component handles navigation routes
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +27,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/post" element={<Post />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<Home />} />

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-// Navigation bar component displayed at the top of the website
 function Navbar() {
   return (
     <nav className="site-nav" aria-label="Main navigation">
@@ -12,7 +11,7 @@ function Navbar() {
       </form>
 
       <div className="site-nav-actions">
-        <Link className="post-link" to="/login">Post</Link>
+        <Link className="post-link" to="/post">Post</Link>
         <Link className="login-link" to="/login">Login</Link>
       </div>
     </nav>
