@@ -1,63 +1,125 @@
-/* Navigation bar */
+/* Navigation bar at the top - matching Image 1 */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #eeeeee;
+  border-bottom: 1px solid #d5d5d5;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 .site-nav {
   width: min(100% - 32px, 1100px);
-  min-height: 38px;
-  margin: 14px auto 0;
-  padding: 0 8px;
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 6px 0;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #e1e1e1;
-  border: 1px solid #d0d0d0;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+}
+
+/* Left side of navbar: Brand + Search bar */
+.site-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
 }
 
 .site-brand {
-  color: #111;
-  font-size: 13px;
+  color: #000000;
+  font-size: 15px;
   font-weight: bold;
   text-decoration: none;
   white-space: nowrap;
+  letter-spacing: -0.2px;
 }
 
+/* Clean shortened search bar without extra icon */
 .site-search {
-  height: 24px;
+  height: 28px;
+  width: 260px;
+  max-width: 300px;
   display: flex;
-  flex: 1;
-  border: 1px solid #c7c7c7;
-  background: white;
+  align-items: center;
 }
 
 .site-search input {
-  min-width: 0;
-  padding: 2px 8px;
-  flex: 1;
-  border: 0;
-  font: 11px Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 3px 10px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background: #ffffff;
+  font: 12px Arial, sans-serif;
+  color: #333333;
+  outline: none;
 }
 
-.site-search button {
-  width: 27px;
-  border: 0;
-  color: #777;
-  background: white;
-  cursor: pointer;
+.site-search input::placeholder {
+  color: #888888;
 }
 
+.site-search input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+/* Right side actions: Post, Login / User state */
 .site-nav-actions {
   display: flex;
-  gap: 18px;
-  padding: 0 4px 0 25px;
+  align-items: center;
+  gap: 22px;
 }
 
 .site-nav-actions a {
-  color: #111;
-  font-size: 13px;
+  color: #333333;
+  font-size: 14px;
   text-decoration: none;
+  font-weight: normal;
+}
+
+.site-nav-actions a:hover {
+  color: #000000;
+}
+
+/* User logged-in state inside navbar (Image 2) */
+.nav-user-logged {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-greeting {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.nav-logout-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  background-color: #2b74ff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-logout-btn:hover {
+  background-color: #1d4ed8;
 }
 
 /* Login and signup pages */
 .auth-page {
-  min-height: 420px;
+  min-height: 440px;
   padding: 38px 20px 58px;
   display: flex;
   justify-content: center;
@@ -67,13 +129,14 @@
 
 .auth-card {
   width: min(100%, 500px);
-  padding: 18px 24px 24px;
+  padding: 20px 24px 24px;
   border: 1px solid #3678ff;
   background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .auth-card-heading {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,17 +144,22 @@
 
 .auth-card h1 {
   margin: 0;
-  color: #111;
-  font-size: 20px;
-  font-weight: normal;
+  color: #111111;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .auth-signup-link {
-  padding: 3px 8px;
+  padding: 3px 12px;
   color: #2870ff;
   border: 1px solid #9bbcff;
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: none;
+  border-radius: 2px;
+}
+
+.auth-signup-link:hover {
+  background-color: #f0f7ff;
 }
 
 .auth-form {
@@ -100,67 +168,118 @@
 }
 
 .auth-form label {
-  margin: 9px 0 4px;
-  color: #111;
-  font-size: 12px;
+  margin: 10px 0 5px;
+  color: #111111;
+  font-size: 13px;
 }
 
 .auth-form input {
   width: 100%;
-  height: 27px;
-  padding: 3px 7px;
-  border: 1px solid #ccc;
-  color: #111;
+  height: 30px;
+  padding: 4px 8px;
+  border: 1px solid #cccccc;
+  color: #111111;
   font: 13px Arial, sans-serif;
+  outline: none;
+  border-radius: 2px;
 }
 
+.auth-form input:focus {
+  border-color: #3678ff;
+}
+
+/* Red error alert box */
+.form-message {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #a82323;
+  border: 1px solid #fed7d7;
+  background: #fff5f5;
+  border-radius: 2px;
+}
+
+.form-success {
+  margin: 12px 0 0;
+  padding: 9px 12px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #276749;
+  border: 1px solid #c6f6d5;
+  background: #f0fff4;
+  border-radius: 2px;
+}
+
+/* Blue login button */
 .auth-submit {
-  min-height: 31px;
-  margin-top: 15px;
+  min-height: 34px;
+  margin-top: 16px;
   border: 0;
   color: white;
-  background: #3678ff;
-  font: 13px Arial, sans-serif;
+  background: #2563eb;
+  font: 14px Arial, sans-serif;
   cursor: pointer;
+  border-radius: 2px;
+  transition: background-color 0.15s;
+}
+
+.auth-submit:hover {
+  background: #1d4ed8;
 }
 
 .auth-submit:disabled {
   opacity: .65;
 }
 
-.auth-switch {
-  margin: 15px 0 0;
-  color: #555;
+/* Google Sign-In button */
+.auth-google-btn {
+  width: 100%;
+  height: 38px;
+  margin-top: 14px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  color: #333333;
+  font: 13px Arial, sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.auth-google-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #999999;
+}
+
+.auth-google-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* "Don't have an account? Sign Up" */
+.auth-switch-text {
+  margin: 16px 0 4px;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
+  color: #333333;
 }
 
-.auth-switch a {
-  color: #286dff;
-  text-decoration: none;
+.auth-purple-link {
+  color: #6b46c1;
+  text-decoration: underline;
+  margin-left: 4px;
+  font-weight: 500;
 }
 
-.form-message,
-.form-success {
-  margin: 10px 0 0;
-  padding: 8px 10px;
-  font-size: 12px;
-  line-height: 1.45;
+.auth-purple-link:hover {
+  color: #4c1d95;
 }
 
-.form-message {
-  color: #9b2c2c;
-  border: 1px solid #fed7d7;
-  background: #fff5f5;
-}
-
-.form-success {
-  color: #276749;
-  border: 1px solid #c6f6d5;
-  background: #f0fff4;
-}
-
-/* The signup form places labels beside their fields. */
+/* The signup form places labels beside their fields */
 .signup-card {
   width: min(100%, 700px);
   padding: 20px 28px 26px;
@@ -170,7 +289,7 @@
   margin: 0 0 18px;
   color: #286dff;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .signup-form {
@@ -185,10 +304,11 @@
 }
 
 .signup-form input {
-  height: 27px;
+  height: 28px;
 }
 
-.signup-form .form-message {
+.signup-form .form-message,
+.signup-form .form-success {
   grid-column: 1 / 3;
 }
 
@@ -197,26 +317,260 @@
   margin-top: 4px;
 }
 
-@media (max-width: 560px) {
+/* Google Account Chooser Modal */
+.google-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 16px;
+  animation: googleFadeIn 0.2s ease-out;
+}
+
+@keyframes googleFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.google-modal-card {
+  background: #ffffff;
+  width: min(100%, 420px);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  animation: googleSlideUp 0.2s ease-out;
+}
+
+@keyframes googleSlideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.google-modal-header {
+  padding: 24px 24px 16px;
+  text-align: center;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.google-logo {
+  margin-bottom: 8px;
+}
+
+.google-modal-header h2 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #202124;
+}
+
+.google-modal-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.google-account-list {
+  padding: 8px 0;
+}
+
+.google-account-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f1f3f4;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s;
+}
+
+.google-account-item:last-child {
+  border-bottom: none;
+}
+
+.google-account-item:hover {
+  background-color: #f8f9fa;
+}
+
+.google-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.google-avatar-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f3f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.google-account-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.google-account-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #202124;
+}
+
+.google-account-email {
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.google-use-another .google-account-name {
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.google-custom-form {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.google-custom-form label {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 4px;
+}
+
+.google-custom-form input {
+  height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+.google-custom-form input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 1px #1a73e8;
+}
+
+.google-error-msg {
+  color: #d93025;
+  font-size: 12px;
+  margin: -6px 0 10px 0;
+}
+
+.google-custom-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.google-back-btn {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.google-next-btn {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.google-next-btn:hover {
+  background: #1557b0;
+}
+
+.google-modal-footer {
+  padding: 16px 24px 20px;
+  background: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.google-disclaimer {
+  margin: 0;
+  font-size: 11px;
+  color: #70757a;
+  line-height: 1.4;
+}
+
+.google-cancel-btn {
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 8px 18px;
+  color: #3c4043;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.google-cancel-btn:hover {
+  background: #f1f3f4;
+  border-color: #c6c9cc;
+}
+
+@media (max-width: 650px) {
   .site-nav {
-    width: calc(100% - 20px);
-    margin-top: 10px;
-    gap: 6px;
-    padding: 0 5px;
+    width: 100%;
+    padding: 6px 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .site-nav-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .site-search {
+    width: 170px;
   }
 
   .site-brand,
   .site-nav-actions a {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .site-nav-actions {
-    gap: 9px;
-    padding-left: 5px;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .auth-page {
-    padding: 26px 12px 40px;
+    padding: 24px 12px 36px;
   }
 
   .auth-card {
